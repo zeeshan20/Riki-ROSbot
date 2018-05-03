@@ -1,0 +1,13 @@
+<launch>
+        <arg name="model" default="$(find rikirobot)/urdf/zee_robot.urdf"/>
+        <arg name="gui" default="true" />
+        <arg name="rvizconfig" default="$(find rikirobot)/rviz/zee_robot.rviz" />
+
+        <param name="robot_description" command="cat $(find rikirobot)/urdf/zee_robot.urdf" />
+	<param name="use_gui" value="$(arg gui)"/>
+
+        <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />  
+      <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" /> 
+
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+</launch>

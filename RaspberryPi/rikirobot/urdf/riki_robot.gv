@@ -1,0 +1,35 @@
+digraph G {
+node [shape=box];
+"base_link" [label="base_link"];
+"caster_wheel" [label="caster_wheel"];
+"laser" [label="laser"];
+"left_pole_one" [label="left_pole_one"];
+"left_pole_two" [label="left_pole_two"];
+"perception_deck" [label="perception_deck"];
+"right_pole_one" [label="right_pole_one"];
+"right_pole_two" [label="right_pole_two"];
+"wheel_left" [label="wheel_left"];
+"wheel_right" [label="wheel_right"];
+"wheel_track" [label="wheel_track"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"base_link" -> "base_to_caster_wheel" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"base_to_caster_wheel" -> "caster_wheel"
+"base_link" -> "base_to_laser" [label="xyz: 0.065 0 0.196 \nrpy: 0 -0 0"]
+"base_to_laser" -> "laser"
+"base_link" -> "base_to_left_pole_one" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"base_to_left_pole_one" -> "left_pole_one"
+"base_link" -> "base_to_left_pole_two" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"base_to_left_pole_two" -> "left_pole_two"
+"base_link" -> "base_to_perception_deck" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"base_to_perception_deck" -> "perception_deck"
+"base_link" -> "base_to_right_pole_one" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"base_to_right_pole_one" -> "right_pole_one"
+"base_link" -> "base_to_right_pole_two" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"base_to_right_pole_two" -> "right_pole_two"
+"base_link" -> "base_to_wheel_left" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"base_to_wheel_left" -> "wheel_left"
+"base_link" -> "base_to_wheel_right" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"base_to_wheel_right" -> "wheel_right"
+"base_link" -> "base_to_wheel_track" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"base_to_wheel_track" -> "wheel_track"
+}

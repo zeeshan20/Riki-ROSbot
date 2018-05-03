@@ -1,0 +1,8 @@
+<launch>
+  <node pkg="map_server" name="map_server" type="map_server" args="$(find rikirobot)/maps/map_30.yaml" output="screen" />
+
+<!--  <include file="$(find rikirobot)/launch/amcl.launch" /> -->
+  <include file="$(find rikirobot)/launch/amcl-old.launch" />
+  <include file="$(find rikirobot)/launch/move_base.launch" />
+
+</launch>

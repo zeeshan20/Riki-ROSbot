@@ -1,0 +1,14 @@
+<launch>
+
+  <node pkg="ros_arduino_imu" type="raw_imu_bridge_node" name="raw_imu_bridge" output="screen" respawn="false" />
+
+  <node pkg="imu_filter_madgwick" type="imu_filter_node" name="imu_filter_madgwick" output="screen" respawn="false">
+    
+        <param name="fixed_frame" value="odom" />
+        <param name="use_mag" value="false" />  
+        <param name="publish_tf" value="true" /> 
+        <param name="use_magnetic_field_msg" value="false" /> 
+        <param name="world_frame" value="enu" />  
+  </node>
+
+</launch>
