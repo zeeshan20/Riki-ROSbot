@@ -3,42 +3,47 @@
 
 #define DEBUG 1
 // #ifndef IMU_DEVICE_CONFIG
-// //#define IMU_DEVICE_CONFIG IMU_MPU6050
+// #define IMU_DEVICE_CONFIG IMU_MPU6050
 // #define IMU_DEVICE_CONFIG   IMU_GY85
 // #endif
 
 
-float K_P = 0.1; // P constant
-float K_I = 0.2; // I constant
-float K_D = 0.2; // D constant
+//*****  DEFINE MOTOR AND ENCODER PINS *****//
+//*****  DEFINE BASE WIDTH AND ENCODER DATA *****//
 
-//define your motors' specs here
+float K_P = 0.1; 							// P constant
+float K_I = 0.2; 							// I constant
+float K_D = 0.2; 							// D constant
 
-const int MAX_RPM = 366; //motor's maximum RPM
-const int COUNTS_PER_REV = 1632; //wheel encoder's no of ticks per rev(gear_ratio * pulse_per_rev)
-const float WHEEL_DIAMETER = 0.064; //wheel's diameter in meters
+//***** Definition of Motor Specifications *****//
 
-#define BASE_WIDTH 0.186 // width of the plate you are using
+const int MAX_RPM = 366; 					//Motor's Maximum RPM
+const int COUNTS_PER_REV = 1632; 			//Encoder Ticks per Revolution (Gear ratio * PPR * 4)
+const float WHEEL_DIAMETER = 0.064; 		//wheel's diameter in meters
 
-//ENCODER PINS
-// left side encoders pins
-#define MOTOR1_ENCODER_A 29 //front_A			
-#define MOTOR1_ENCODER_B 31 //front_B			
+#define BASE_WIDTH 0.160 					// Base_width: Distance between two wheels centres
 
-// right side encoders pins
-#define MOTOR2_ENCODER_A 28 //front_A			
-#define MOTOR2_ENCODER_B 26 //front_B			
+//***** ENCODER PINS *****//
 
-//don't change this if you followed the schematic diagram
-//MOTOR PINS
-//left side motor pins
-#define MOTOR1_PWM 32  	       
-#define MOTOR1_IN_A 20
-#define MOTOR1_IN_B 33
+// Left Wheel Encoders Pins
+#define MOTOR1_ENCODER_A 29 			
+#define MOTOR1_ENCODER_B 31 			
 
-//right side motor pins
-#define MOTOR2_PWM 25	     
-#define MOTOR2_IN_A 30	
-#define MOTOR2_IN_B 27		
+// Right Wheel Encoders Pins
+#define MOTOR2_ENCODER_A 28 		
+#define MOTOR2_ENCODER_B 26 		
+
+
+//***** MOTOR PINS *****//
+
+//Left Wheel Motor Pins
+#define MOTOR1_PWM 32  	       				// PWM pin
+#define MOTOR1_IN_A 20						// Motor +ve
+#define MOTOR1_IN_B 33						// Motor -ve
+
+//Right Wheel Motor Pins
+#define MOTOR2_PWM 25	     				// PWM pin
+#define MOTOR2_IN_A 30						// Motor +ve
+#define MOTOR2_IN_B 27						// Motor -ve
 
 #endif

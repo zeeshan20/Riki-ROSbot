@@ -1,23 +1,24 @@
 <launch>
 
-    <!-- Start ROS communication between the robot's computer and Linorobot base -->
+    <!-- Start ROS communication between the Host Computer and Remote Computer -->
 
     <remap from="/arduino_teensy/raw_imu" to="/raw_imu"/>
     <remap from="/arduino_teensy/cmd_vel" to="/cmd_vel"/>
     <remap from="/arduino_teensy/raw_vel" to="/raw_vel"/>
     <remap from="/arduino_teensy/pid" to="/pid"/>
+	
     <node ns="arduino_teensy" pkg="rosserial_python" type="serial_node.py" name="serial_node_teensy" output="screen">
-    <param name="port" value="/dev/ttyACM0"/>
-    <param name="baud" value="115200"/>
+		<param name="port" value="/dev/ttyACM0"/>
+		<param name="baud" value="115200"/>
     </node>
 
     <!-- IMU Relay and Filter -->
     <include file="$(find ros_arduino_imu)/launch/imu_ahrs.launch" />
 
-    <!-- Publish Linorobot odometry -->
+    <!-- Publish Odometry -->
     <node pkg="rikirobot" name="riki_base_node" type="riki_base_node"></node> 
  
-    <!-- RP Lidar -->
+    <!-- Initialize RP Lidar -->
     <include file="$(find rplidar_ros)/launch/rplidar.launch" /> 
 
 
